@@ -37,7 +37,7 @@ describe('app routes', () => {
       const expectation = [
         {
           id: 1,
-          regex:	'/banana/ig',
+          regex:	'banana',
           images: [
             'https://cdn.discordapp.com/attachments/808589409074937861/808955633255972894/image0.jpg',
           ],
@@ -45,7 +45,7 @@ describe('app routes', () => {
         },
         {
           id: 2,
-          regex: '/love/ig',
+          regex: 'love',
           images: [
             'https://cdn.discordapp.com/attachments/808589409074937863/809965707101470720/images.png',
           ],
@@ -53,7 +53,7 @@ describe('app routes', () => {
         },
         {
           id: 3,
-          regex: '/cry/ig',
+          regex: 'cry',
           images: [
             'https://cdn.discordapp.com/attachments/808589409074937863/809965833613738014/Z.png',
           ],
@@ -61,7 +61,7 @@ describe('app routes', () => {
         },
         {
           id: 4,
-          regex: '/funny/ig',
+          regex: 'funny',
           images: [
             'https://cdn.discordapp.com/attachments/808589409074937863/809965934030094366/s-l400.png',
           ],
@@ -69,7 +69,7 @@ describe('app routes', () => {
         },
         {
           id: 5,
-          regex: '/old/ig',
+          regex: 'old',
           images: [
             'https://cdn.discordapp.com/attachments/808589409074937863/809966027685101628/Birthday-Quotes-Top-20-Funny-Birthday-Quotes.png',
           ],
@@ -77,7 +77,7 @@ describe('app routes', () => {
         },
         {
           id: 6,
-          regex: '/dead/ig',
+          regex: 'dead',
           images: [
             'https://cdn.discordapp.com/attachments/808589409074937863/809966255514583070/212abc7f24e95d2b11e96f18c78b4ef9.png',
           ],
@@ -85,7 +85,7 @@ describe('app routes', () => {
         },
         {
           id: 7,
-          regex: '/phone/ig',
+          regex: 'phone',
           images: [
             'https://cdn.discordapp.com/attachments/808589409074937863/809966385266425886/a43924f9453945829c01b31591f04ea3.png',
           ],
@@ -93,7 +93,7 @@ describe('app routes', () => {
         },
         {
           id: 8,
-          regex: '/fuck/ig',
+          regex: 'fuck',
           images: [
             'https://cdn.discordapp.com/attachments/808589409074937863/809966538043162654/3ac99fedad8e1efbdacb21c64d93efd0.png',
           ],
@@ -101,7 +101,7 @@ describe('app routes', () => {
         },
         {
           id: 9,
-          regex: '/long/ig',
+          regex: 'long',
           images: [
             'https://cdn.discordapp.com/attachments/808589409074937863/809966696756281354/127670f213927573b07101cb3f971494.png',
           ],
@@ -109,7 +109,7 @@ describe('app routes', () => {
         },
         {
           id: 10,
-          regex: '/morning/ig',
+          regex: 'morning',
           images: [
             'https://cdn.discordapp.com/attachments/808589409074937863/809966775122264074/62c026b3e795faa5a520963ab5649f20.png',
           ],
@@ -117,7 +117,7 @@ describe('app routes', () => {
         },
         {
           id: 11,
-          regex: '/blessed/ig',
+          regex: 'blessed',
           images: [
             'https://cdn.discordapp.com/attachments/808589409074937863/809966872832770078/4f1940cc91fda1dd2c7631ee56cad5d9.png',
           ],
@@ -125,7 +125,7 @@ describe('app routes', () => {
         },
         {
           id: 12,
-          regex: '/school/ig',
+          regex: 'school',
           images: [
             'https://cdn.discordapp.com/attachments/808589409074937863/809967044672880650/714d23317712f3d4b8dcdb99e5671cb8.png',
           ],
@@ -133,7 +133,7 @@ describe('app routes', () => {
         },
         {
           id: 13,
-          regex: '/sweet/ig',
+          regex: 'sweet',
           images: [
             'https://cdn.discordapp.com/attachments/808589409074937863/809967212299157544/fea64182884d00a64b2a13e02f81be38.png',
           ],
@@ -141,7 +141,7 @@ describe('app routes', () => {
         },
         {
           id: 14,
-          regex: '/throw/ig',
+          regex: 'throw',
           images: [
             'https://cdn.discordapp.com/attachments/808589409074937863/809967277591494676/dc5df276ce3b14f3c043e968ea92ff23.png',
           ],
@@ -149,7 +149,7 @@ describe('app routes', () => {
         },
         {
           id: 15,
-          regex: '/worries/ig',
+          regex: 'worries',
           images: [
             'https://cdn.discordapp.com/attachments/808589409074937863/809967483821228122/1eb3e11671c23d862a9ca28f92dedff4.png',
           ],
@@ -157,7 +157,7 @@ describe('app routes', () => {
         },
         {
           id: 16,
-          regex: '/hate/ig',
+          regex: 'hate',
           images: [
             'https://cdn.discordapp.com/attachments/808589409074937863/809967768874385478/1l0apx.png',
           ],
@@ -165,7 +165,7 @@ describe('app routes', () => {
         },
         {
           id: 17,
-          regex: '/gun/ig',
+          regex: 'gun',
           images: [
             'https://cdn.discordapp.com/attachments/808589409074937863/809967956116897802/426474798-e2f2d7533a66dc4f1c19a38b1d61294d.png',
           ],
@@ -185,7 +185,7 @@ describe('app routes', () => {
 
       const expectation = {
         id: 5,
-        regex: '/old/ig',
+        regex: 'old',
         images: [
           'https://cdn.discordapp.com/attachments/808589409074937863/809966027685101628/Birthday-Quotes-Top-20-Funny-Birthday-Quotes.png',
         ],
@@ -202,7 +202,7 @@ describe('app routes', () => {
 
     test('creates a new response as the test user', async() => {
       const newResponse = {
-        regex: '/test/gi',
+        regex: 'test',
         images: ['some URL', 'some other URL']
       };
 
@@ -224,7 +224,7 @@ describe('app routes', () => {
 
     test('edits a response as the test user', async() => {
       const editedResponse = {
-        regex: '/testy/gi',
+        regex: 'testy',
         images: ['some URL', 'some other URL', 'a third URL']
       };
 
@@ -248,7 +248,7 @@ describe('app routes', () => {
     
       const expectation = {
         id: 18,
-        regex: '/testy/gi',
+        regex: 'testy',
         images: ['some URL', 'some other URL', 'a third URL'],
         owner_id: 2
       };
