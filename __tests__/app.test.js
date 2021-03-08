@@ -203,5 +203,27 @@ describe('app routes', () => {
       expect(data.body).toEqual(expectation);
     });
 
+    test('edits a response as the test user', async() => {
+      const editedResponse = {
+        regex: '/testy/gi',
+        images: ['some URL', 'some other URL', 'a third URL']
+      };
+
+      const expectation = {
+        ...editedResponse,
+        id: 18,
+        owner_id: 2
+      };
+
+      const data = await fakeRequest(app)
+        .put('/api/responses/18')
+        .set({ Authorization: token })
+        .send(editedResponse)
+        .expect('Content-Type', /json/)
+        .expect(200);
+
+      expect(data.body).toEqual(expectation);
+    });
+
   });
 });
