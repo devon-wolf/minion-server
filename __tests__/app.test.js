@@ -18,7 +18,7 @@ describe('app routes', () => {
       const signInData = await fakeRequest(app)
         .post('/auth/signup')
         .send({
-          email: 'jon@user.com',
+          username: 'jon@user.com',
           password: '1234'
         });
       
@@ -180,5 +180,28 @@ describe('app routes', () => {
 
       expect(data.body).toEqual(expectation);
     });
+
+    test('creates a new response as the test user', async() => {
+      const newResponse = {
+        regex: '/test/gi',
+        images: ['some URL', 'some other URL']
+      };
+
+      const expectation = {
+        ...newResponse,
+        id: 18,
+        owner_id: 2
+      };
+
+      const data = await fakeRequest(app)
+        .post('/api/responses')
+        .set({ Authorization: token })
+        .send(newResponse)
+        .expect('Content-Type', /json/)
+        .expect(200);
+
+      expect(data.body).toEqual(expectation);
+    });
+
   });
 });
