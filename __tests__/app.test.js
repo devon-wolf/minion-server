@@ -181,6 +181,25 @@ describe('app routes', () => {
       expect(data.body).toEqual(expectation);
     });
 
+    test('returns a single response by id', async() => {
+
+      const expectation = {
+        id: 5,
+        regex: '/old/ig',
+        images: [
+          'https://cdn.discordapp.com/attachments/808589409074937863/809966027685101628/Birthday-Quotes-Top-20-Funny-Birthday-Quotes.png',
+        ],
+        owner_id: 1
+      };
+
+      const data = await fakeRequest(app)
+        .get('/responses/5')
+        .expect('Content-Type', /json/)
+        .expect(200);
+
+      expect(data.body).toEqual(expectation);
+    });
+
     test('creates a new response as the test user', async() => {
       const newResponse = {
         regex: '/test/gi',
@@ -223,6 +242,28 @@ describe('app routes', () => {
         .expect(200);
 
       expect(data.body).toEqual(expectation);
+    });
+
+    test('deletes a response as the test user', async() => {
+    
+      const expectation = {
+        id: 18,
+        regex: '/testy/gi',
+        images: ['some URL', 'some other URL', 'a third URL'],
+        owner_id: 2
+      };
+
+      const data = await fakeRequest(app)
+        .delete('/api/responses/18')
+        .set({ Authorization: token })
+        .expect('Content-Type', /json/)
+        .expect(200);
+
+      const fetch = await fakeRequest(app)
+        .get('/responses/18');
+
+      expect(data.body).toEqual(expectation);
+      expect(fetch.body).toEqual('');
     });
 
   });
