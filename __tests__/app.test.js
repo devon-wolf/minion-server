@@ -42,135 +42,7 @@ describe('app routes', () => {
             'https://cdn.discordapp.com/attachments/808589409074937861/808955633255972894/image0.jpg',
           ],
           owner_id: 1
-        },
-        {
-          id: 2,
-          regex: 'love',
-          images: [
-            'https://cdn.discordapp.com/attachments/808589409074937863/809965707101470720/images.png',
-          ],
-          owner_id: 1
-        },
-        {
-          id: 3,
-          regex: 'cry',
-          images: [
-            'https://cdn.discordapp.com/attachments/808589409074937863/809965833613738014/Z.png',
-          ],
-          owner_id: 1
-        },
-        {
-          id: 4,
-          regex: 'funny',
-          images: [
-            'https://cdn.discordapp.com/attachments/808589409074937863/809965934030094366/s-l400.png',
-          ],
-          owner_id: 1
-        },
-        {
-          id: 5,
-          regex: 'old',
-          images: [
-            'https://cdn.discordapp.com/attachments/808589409074937863/809966027685101628/Birthday-Quotes-Top-20-Funny-Birthday-Quotes.png',
-          ],
-          owner_id: 1
-        },
-        {
-          id: 6,
-          regex: 'dead',
-          images: [
-            'https://cdn.discordapp.com/attachments/808589409074937863/809966255514583070/212abc7f24e95d2b11e96f18c78b4ef9.png',
-          ],
-          owner_id: 1
-        },
-        {
-          id: 7,
-          regex: 'phone',
-          images: [
-            'https://cdn.discordapp.com/attachments/808589409074937863/809966385266425886/a43924f9453945829c01b31591f04ea3.png',
-          ],
-          owner_id: 1
-        },
-        {
-          id: 8,
-          regex: 'fuck',
-          images: [
-            'https://cdn.discordapp.com/attachments/808589409074937863/809966538043162654/3ac99fedad8e1efbdacb21c64d93efd0.png',
-          ],
-          owner_id: 1
-        },
-        {
-          id: 9,
-          regex: 'long',
-          images: [
-            'https://cdn.discordapp.com/attachments/808589409074937863/809966696756281354/127670f213927573b07101cb3f971494.png',
-          ],
-          owner_id: 1
-        },
-        {
-          id: 10,
-          regex: 'morning',
-          images: [
-            'https://cdn.discordapp.com/attachments/808589409074937863/809966775122264074/62c026b3e795faa5a520963ab5649f20.png',
-          ],
-          owner_id: 1
-        },
-        {
-          id: 11,
-          regex: 'blessed',
-          images: [
-            'https://cdn.discordapp.com/attachments/808589409074937863/809966872832770078/4f1940cc91fda1dd2c7631ee56cad5d9.png',
-          ],
-          owner_id: 1
-        },
-        {
-          id: 12,
-          regex: 'school',
-          images: [
-            'https://cdn.discordapp.com/attachments/808589409074937863/809967044672880650/714d23317712f3d4b8dcdb99e5671cb8.png',
-          ],
-          owner_id: 1
-        },
-        {
-          id: 13,
-          regex: 'sweet',
-          images: [
-            'https://cdn.discordapp.com/attachments/808589409074937863/809967212299157544/fea64182884d00a64b2a13e02f81be38.png',
-          ],
-          owner_id: 1
-        },
-        {
-          id: 14,
-          regex: 'throw',
-          images: [
-            'https://cdn.discordapp.com/attachments/808589409074937863/809967277591494676/dc5df276ce3b14f3c043e968ea92ff23.png',
-          ],
-          owner_id: 1
-        },
-        {
-          id: 15,
-          regex: 'worries',
-          images: [
-            'https://cdn.discordapp.com/attachments/808589409074937863/809967483821228122/1eb3e11671c23d862a9ca28f92dedff4.png',
-          ],
-          owner_id: 1
-        },
-        {
-          id: 16,
-          regex: 'hate',
-          images: [
-            'https://cdn.discordapp.com/attachments/808589409074937863/809967768874385478/1l0apx.png',
-          ],
-          owner_id: 1
-        },
-        {
-          id: 17,
-          regex: 'gun',
-          images: [
-            'https://cdn.discordapp.com/attachments/808589409074937863/809967956116897802/426474798-e2f2d7533a66dc4f1c19a38b1d61294d.png',
-          ],
-          owner_id: 1
-        },
+        }
       ];
 
       const data = await fakeRequest(app)
@@ -184,16 +56,16 @@ describe('app routes', () => {
     test('returns a single response by id', async() => {
 
       const expectation = {
-        id: 5,
-        regex: 'old',
+        id: 1,
+        regex:	'banana',
         images: [
-          'https://cdn.discordapp.com/attachments/808589409074937863/809966027685101628/Birthday-Quotes-Top-20-Funny-Birthday-Quotes.png',
+          'https://cdn.discordapp.com/attachments/808589409074937861/808955633255972894/image0.jpg',
         ],
         owner_id: 1
       };
 
       const data = await fakeRequest(app)
-        .get('/responses/5')
+        .get('/responses/1')
         .expect('Content-Type', /json/)
         .expect(200);
 
@@ -208,7 +80,7 @@ describe('app routes', () => {
 
       const expectation = {
         ...newResponse,
-        id: 18,
+        id: 2,
         owner_id: 2
       };
 
@@ -230,12 +102,12 @@ describe('app routes', () => {
 
       const expectation = {
         ...editedResponse,
-        id: 18,
+        id: 2,
         owner_id: 2
       };
 
       const data = await fakeRequest(app)
-        .put('/api/responses/18')
+        .put('/api/responses/2')
         .set({ Authorization: token })
         .send(editedResponse)
         .expect('Content-Type', /json/)
@@ -247,20 +119,20 @@ describe('app routes', () => {
     test('deletes a response as the test user', async() => {
     
       const expectation = {
-        id: 18,
+        id: 2,
         regex: 'testy',
         images: ['some URL', 'some other URL', 'a third URL'],
         owner_id: 2
       };
 
       const data = await fakeRequest(app)
-        .delete('/api/responses/18')
+        .delete('/api/responses/2')
         .set({ Authorization: token })
         .expect('Content-Type', /json/)
         .expect(200);
 
       const fetch = await fakeRequest(app)
-        .get('/responses/18');
+        .get('/responses/2');
 
       expect(data.body).toEqual(expectation);
       expect(fetch.body).toEqual('');
